@@ -16,7 +16,7 @@ class Homecontroller extends Controller
     public function index($id)
     {
         //
-        $cate = Category::all();
+        $cate = Category::where('id',$id)->where('status',1)->get();
         $pro = Product::where('cate_id',$id)->where('status',1)->get();
         return view('font-end.content',compact('cate','pro'));
     }
